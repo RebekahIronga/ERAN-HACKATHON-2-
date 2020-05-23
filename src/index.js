@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const db = require('./db/db');
+const db = require("./db/db");
 const formView = require('./views/formView');
 const userView = require ('./views/userView');
 

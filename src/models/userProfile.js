@@ -6,15 +6,22 @@ const jwt = require("jsonwebtoken");
 var userSchema = new mongoose.Schema({
     email:{
         type: String,
-       required: true
+       required: true,
+       unique: true
     },
    Username:{
-      type: String,
+    type: String,
     required: true
 },
 password:{
     type: String,
     required: true
+},
+role:{
+    type: String,
+    required: true,
+    enum:["admin","staff"],
+    default: "staff"
 }
 
 });
@@ -42,7 +49,7 @@ return user;
 userSchema.methods.generateAuthToken = async function(){
     const user =this;
     const token = jwt.sign(
-        {id: user, id, email: user.email},
+        {id: user._id, email: user.email},
         "AtaleOfTwoCities"
         );
         
