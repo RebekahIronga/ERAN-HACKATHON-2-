@@ -1,12 +1,15 @@
 const mongoose = require("mongoose");
+//var MongoClient = require('mongodb').MongoClient;
+//var url = "mongodb://localhost:27017/";
 
-mongoose.connect("mongodb://localhost:27017/formDB", 
+const db =mongoose.connect("mongodb://localhost:27017/formDB", 
 {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
 
-const db = mongoose.connection;
+
+
 if(!db){
     console.log("Error connecting to database");
 } else{
